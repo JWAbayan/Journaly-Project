@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.deletion import CASCADE
 from django.db.models.fields import EmailField
 
 # Create your models here.
@@ -26,6 +27,7 @@ class Item(models.Model):
     )
 
     id = models.BigAutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=CASCADE)
     type = models.CharField(max_length=1, choices=type_option)
     title = models.CharField(max_length=100)
     body = models.TextField(null=True, blank=True)
