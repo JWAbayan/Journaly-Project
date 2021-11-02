@@ -34,7 +34,7 @@ class Item(models.Model):
     date = models.DateField(null=True, blank=True)
     time = models.TimeField(null=True, blank=True)
     journal = models.CharField(max_length=50, null=True, blank=True)
-    list = models.CharField(max_length=50, null=True, blank=True)
+    lists = models.CharField(max_length=50, null=True, blank=True)
     status = models.CharField(max_length=1, choices=status_option)
 
     def __str__(self):
