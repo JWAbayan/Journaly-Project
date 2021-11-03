@@ -6,14 +6,14 @@ class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = (
-            "id",
-            "user",
-            "type",
-            "title",
-            "body",
-            "date",
-            "time",
-            "journal",
-            "lists",
-            "status",
+            "IDNum",
+            "User",
+            "Type",
+            "Title",
+            "Body",
+            "Date",
+            "Time",
+            "Journal",
+            "List",
+            "Status",
         )

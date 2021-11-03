@@ -38,4 +38,4 @@ class Item(models.Model):
     Status = models.CharField(max_length=1, choices=status_option)
 
     def __str__(self):
-        return self.IDNum, self.Title
+        return self.Title
