@@ -26,16 +26,16 @@ class Item(models.Model):
         ("P", "Pending"),
     )
 
-    id = models.BigAutoField(primary_key=True)
-    user = models.ForeignKey(User, on_delete=CASCADE)
-    type = models.CharField(max_length=1, choices=type_option)
-    title = models.CharField(max_length=100)
-    body = models.TextField(null=True, blank=True)
-    date = models.DateField(null=True, blank=True)
-    time = models.TimeField(null=True, blank=True)
-    journal = models.CharField(max_length=50, null=True, blank=True)
-    lists = models.CharField(max_length=50, null=True, blank=True)
-    status = models.CharField(max_length=1, choices=status_option)
+    IDNum = models.BigAutoField(primary_key=True)
+    User = models.ForeignKey(User, on_delete=CASCADE)
+    Type = models.CharField(max_length=1, choices=type_option)
+    Title = models.CharField(max_length=100)
+    Body = models.TextField(null=True, blank=True)
+    Date = models.DateField(null=True, blank=True)
+    Time = models.TimeField(null=True, blank=True)
+    Journal = models.CharField(max_length=50, null=True, blank=True)
+    List = models.CharField(max_length=50, null=True, blank=True)
+    Status = models.CharField(max_length=1, choices=status_option)
 
     def __str__(self):
-        return self.id, self.title
+        return self.IDNum, self.Title
