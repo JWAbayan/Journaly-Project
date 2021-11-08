@@ -20,7 +20,7 @@ from journaly import views
 
 router = routers.DefaultRouter()
 router.register(r"items", views.ItemView, "item")
-
+router.register(r"users", views.UserView, "user")
 
 urlpatterns = [
     path("admin/", admin.site.urls),

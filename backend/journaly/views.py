@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import ItemSerializer
-from .models import Item
+from rest_framework.serializers import Serializer
+from .serializers import ItemSerializer, UserSerializer
+from .models import Item, User
 
 # Create your views here.
 
@@ -9,3 +10,7 @@ from .models import Item
 class ItemView(viewsets.ModelViewSet):
     serializer_class = ItemSerializer
     queryset = Item.objects.all()
+
+class UserView(viewsets.ModelViewSet):
+    serializer_class = UserSerializer
+    queryset = User.objects.all()

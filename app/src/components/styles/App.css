@@ -1,0 +1,77 @@
+body,html{
+  margin :0;
+  height: 100%;
+  background-color: rgb(243, 243, 255);
+}
+
+#root{
+  height: 100%; 
+  width: 100%;
+}
+
+.app{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.app-name{
+  display: flex ;
+  padding: 10px;
+  justify-content: center;
+}
+
+.app-name > h1{
+  font-family: montserrat;
+  font-size: 20px;
+}
+
+.app-row{
+  height: 100%;
+}
+
+.menu-container{
+  height: 100%;
+  border: 1px rgb(75, 206, 149) solid;
+  color: rgb(42, 230, 120) ;
+  /* background-color: rgb(188, 243, 243); */
+}
+
+.menu{
+  display: block;
+  justify-content: center ;
+}
+
+.icon-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.journal-container{
+  height: 100%;
+  padding: 0px;
+  /* background-color: rgb(232, 203, 203); */
+
+}
+
+.journal-container > header {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+
+  /* background-color: antiquewhite; */
+}
+
+.date{
+  font-family: monospace;
+  display: flex;
+}
+
+main{
+  background-color: aqua;
+  height: 100%;
+  display: flex;
+}
+
