@@ -1,5 +1,5 @@
 import react from 'react'
-import { Link } from 'react-bootstrap-icons';
+import { PersonFill } from 'react-bootstrap-icons';
 
 
 class Calendar extends react.Component {
@@ -8,9 +8,10 @@ class Calendar extends react.Component {
     }
 
     render() {
+        console.log('in');
         return (
             <div>
-                <h1>Hello World</h1>
+                <PersonFill size='32' />
             </div>
         );
     }
