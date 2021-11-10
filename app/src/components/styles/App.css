@@ -23,7 +23,7 @@ body,html{
 }
 
 .app-name > h1{
-  color:rgb(31, 154, 255) ;
+  color:rgb(255, 255, 255) ;
   font-family: montserrat;
   font-size: 20px;
 }
@@ -36,6 +36,7 @@ body,html{
   height: 100%;
   width: 10%;
   border: 1px rgb(75, 206, 149) solid;
+  background-color: rgb(40, 131, 250);
   /* background-color: rgb(188, 243, 243); */
 }
 
@@ -46,8 +47,10 @@ body,html{
 
 .icon-container{
   display: flex;
-  justify-content: center;
   margin-top: 60px;
+  margin-left: 10px;
+  color:rgb(255, 255, 255) ;
+  font-family: montserrat;
 }
 
 .journal-container{
@@ -81,3 +84,16 @@ body,html{
   display: block;
 }
 
+@media only screen and (max-width: 1200px) {
+  .app-name{
+    display: none;
+  }
+
+  .menu-label{
+    display: none;
+  }
+
+  .menu-icon{
+    margin: auto;
+  }
+}

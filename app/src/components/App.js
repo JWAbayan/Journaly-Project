@@ -5,6 +5,8 @@ import { Link, Route, Routes } from 'react-router-dom'
 import Calendar from './main-pages/Calendar';
 import Home from './main-pages/Home'
 
+
+
 class App extends react.Component {
 
   constructor(props) {
@@ -31,6 +33,7 @@ class App extends react.Component {
               <Routes>
                 <Route path='/calendar' element={<Calendar />} />
                 <Route path='/home' element={<Home />} />
+                <Route path='/profile' element={<Profile />} />
               </Routes>
             </main>
           </div>
@@ -50,16 +53,30 @@ class Menu extends react.Component {
     return (
       <>
         <div className="icon-container">
-          <Link to="/home"><Icons.HouseFill size={this.iconSize} /></Link>
+          <Link to="/home">
+            <Icons.HouseFill className="menu-icon" size={this.iconSize} color="white" name="home" />
+          </Link>
+          <p className="mx-4 menu-label">Home</p>
         </div>
         <div className="icon-container">
-          <Link to="/calendar"><Icons.CalendarDateFill size={this.iconSize} /></Link>
+          <Link to="/calendar">
+            <Icons.CalendarDateFill className="menu-icon" size={this.iconSize} color="white" name="calendar" />
+          </Link>
+          <p className="mx-4 menu-label">Calendar</p>
         </div>
+
         <div className="icon-container">
-          <Link to="#"> <Icons.ListTask size={this.iconSize} /> </Link>
+          <Link to="#">
+            <Icons.ListTask className="menu-icon" size={this.iconSize} color="white" />
+          </Link>
+          <p className="mx-4 menu-label">Lists</p>
         </div>
+
         <div className="icon-container">
-          <Link to="#"> <Icons.PersonFill size={this.iconSize} /> </Link>
+          <Link to="#">
+            <Icons.PersonFill className="menu-icon" size={this.iconSize} color="white" />
+          </Link>
+          <p className="mx-4 menu-label">Profile</p>
         </div>
       </>
     );
