@@ -1,8 +1,9 @@
 body,html{
   margin :0;
   height: 100%;
-  background-color: rgb(243, 243, 255);
-  overflow-y: hidden;
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+  
 }
 
 #root{
@@ -47,16 +48,23 @@ body,html{
 
 .icon-container{
   display: flex;
-  margin-top: 60px;
-  margin-left: 10px;
+  justify-content: center;
+  margin-top: 70px;
+  
   color:rgb(255, 255, 255) ;
   font-family: montserrat;
 }
+
+.menu-label{
+  font-size: 2vw;
+}
+
 
 .journal-container{
   height: 100%;
   width: 90%;
   padding: 0px;
+  margin: 0;
   /* background-color: rgb(232, 203, 203); */
 
 }
@@ -70,18 +78,11 @@ body,html{
   /* background-color: antiquewhite; */
 }
 
-.date{
-  font-family: monospace;
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px rgb(75, 206, 149) solid;
-}
-
 .main-content{
   height: 100%;
   width: 100%;
   margin: 0;
-  display: block;
+  padding: 0;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -93,7 +94,5 @@ body,html{
     display: none;
   }
 
-  .menu-icon{
-    margin: auto;
-  }
+  
 }

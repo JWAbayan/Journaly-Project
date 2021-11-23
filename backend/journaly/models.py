@@ -1,6 +1,5 @@
 from django.db import models
-from django.db.models.deletion import CASCADE
-from django.db.models.fields import EmailField
+from django.db.models.deletion import CASCADE, SET_DEFAULT, SET_NULL
 
 # Create your models here.
 
@@ -13,29 +12,34 @@ class User(models.Model):
     def __str__(self):
         return self.username
 
+class Journal(models.Model):
+    name  = models.CharField(max_length=50, null=False)
+    date_created = date_created = models.DateField(null=True, blank=True)
+    user = models.ForeignKey(to=User, on_delete=CASCADE)
+
+    def __str__(self):
+        return self.name
 
 class Item(models.Model):
     type_option = (
-        ("T", "Task"),
-        ("E", "Event"),
-        ("N", "Note"),
+        ("Task", "Task"),
+        ("Event", "Event"),
+        ("Note", "Note"),
     )
 
     status_option = (
-        ("C", "Completed"),
-        ("P", "Pending"),
+        ("Completed", "Completed"),
+        ("Pending", "Pending"),
     )
 
-    IDNum = models.BigAutoField(primary_key=True)
-    User = models.ForeignKey(User, on_delete=CASCADE)
-    Type = models.CharField(max_length=1, choices=type_option)
-    Title = models.CharField(max_length=100)
-    Body = models.TextField(null=True, blank=True)
-    Date = models.DateField(null=True, blank=True)
-    Time = models.TimeField(null=True, blank=True)
-    Journal = models.CharField(max_length=50, null=True, blank=True)
-    List = models.CharField(max_length=50, null=True, blank=True)
-    Status = models.CharField(max_length=1, choices=status_option)
+    user = models.ForeignKey(User, on_delete=CASCADE)
+    type = models.CharField(max_length=10, choices=type_option)
+    title = models.CharField(max_length=100, default="Untitled")
+    body = models.TextField(null=True, blank=True)
+    date = models.DateField(null=True, blank=True)
+    time = models.TimeField(null=True, blank=True)
+    journal = models.ForeignKey(to=Journal, on_delete=CASCADE)
+    status = models.CharField(max_length=10, choices=status_option)
 
     def __str__(self):
-        return self.Title
+        return self.title

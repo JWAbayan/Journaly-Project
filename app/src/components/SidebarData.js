@@ -1,7 +1,0 @@
-barData =[
-    {
-        label: 'Home',
-        icon: ''
-    },
-
-]

@@ -19,8 +19,15 @@ from rest_framework import routers
 from journaly import views
 
 router = routers.DefaultRouter()
-router.register(r"items", views.ItemView, "item")
-router.register(r"users", views.UserView, "user")
+router.register(r"items", views.ItemView, 'item')
+router.register(r"users", views.UserView, basename='user_list')
+router.register(r"journals", views.JournalView, "journal")
+router.register(r"allitems", views.AllItemView, "all_items")
+router.register(r"allusers", views.AllUserView, "all_users")
+router.register(r"alluseritems", views.AllUserItemView, "all_user_items")
+router.register(r"alljournals", views.AllJournalView, "all_journals")
+router.register(r"validate", views.ValidateUserView, "validate_user")
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
