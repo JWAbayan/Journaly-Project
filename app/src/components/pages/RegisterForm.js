@@ -81,9 +81,6 @@ class Register extends React.Component {
         return true;
     }
 
-
-
-
     render() {
         if (this.validated) {
             return <Navigate to='/' />

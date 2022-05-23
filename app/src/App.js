@@ -10,7 +10,7 @@ class App extends react.Component {
     constructor(props) {
         super(props);
         this.state = {
-            'userAuthorized': false,
+            'userAuthorized': true,
             'currentUser': null
         }
         this.authorizeUser = this.authorizeUser.bind(this);
@@ -24,15 +24,15 @@ class App extends react.Component {
 
     logoutUser() {
         this.setState({ userAuthorized: false });
+        this.setState({ currentUser: null });
+
     }
-
-
 
     render() {
         return (
             <Routes>
                 <Route path='/' element={<Login handleLogin={this.authorizeUser} />} />
-                <Route path='/dashboard' element={<Dashboard authorized={this.state.userAuthorized} handleLogout={this.logoutUser} currentUser={this.state.currentUser} />}>
+                <Route path='/dashboard' element={<Dashboard authorized={this.authorizeUser} handleLogout={this.logoutUser} currentUser={this.state.currentUser} />}>
                     <Route path='planner' element={<Planner currentUser={this.state.currentUser} />} />
                     <Route path='calendar' element={<Calendar currentUser={this.state.currentUser} />} />
                 </Route>

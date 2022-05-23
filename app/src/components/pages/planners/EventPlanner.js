@@ -45,7 +45,6 @@ import { Form } from 'react-bootstrap'
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import StaticDatePicker from '@mui/lab/StaticDatePicker';
-
 import axios from 'axios';
 
 
@@ -169,7 +168,6 @@ const EventPlanner = ({ user, type, journal }) => {
             }
         })
 
-        // setTasksToDisplay(events);
         return events;
     }
 
@@ -221,11 +219,9 @@ const EventPlanner = ({ user, type, journal }) => {
         );
     }
 
-
-
+    //This is the Form for adding Events and Tasks
     const AddForm = () => {
         const [eventTitle, setEventTitle] = useState('');
-
 
         const handleChangeTitle = (event) => {
             setEventTitle(event.target.value);
@@ -240,8 +236,6 @@ const EventPlanner = ({ user, type, journal }) => {
 
             axios.post('http://localhost:8000/api/items/', newTask)
                 .then((result) => { fetchEvents() })
-
-
         }
 
         return (
@@ -292,7 +286,6 @@ const EventPlanner = ({ user, type, journal }) => {
     const closeDatePicker = () => {
         setAnchorDatePicker(null);
     }
-
 
     return (
         <Box display='flex' flexDirection='column' height="100%" width="100%" >

@@ -1,45 +1,26 @@
 import { React, useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import AddIcon from '@mui/icons-material/Add';
-import SearchIcon from '@mui/icons-material/Search';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 import {
-    Drawer,
-    List,
-    ListItem,
-    ListItemButton,
-    ListItemIcon,
-    ListItemText,
-    Tooltip,
     TextField,
     Button,
-    ButtonGroup,
-    InputBase,
     Card,
     CardHeader,
-    CardContent,
     CardActions,
     Grid,
-    Item,
-    Collapse,
     Checkbox,
     Menu,
     ButtonBase,
     Popover,
-    Modal
-}
-    from '@mui/material';
-
-
+} from '@mui/material';
 
 import { Form } from 'react-bootstrap'
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -61,6 +42,10 @@ const TaskPlanner = ({ user, type, journal }) => {
     const editFormOpen = Boolean(anchorEditForm);
     const addFormOpen = Boolean(anchorAddForm);
 
+    const fetchTasks = () => {
+        axios.get(`http://localhost:8000/api/items?id=${user.id}&journal=${journal}&type=${type}`)
+            .then((result) => { storeFetchedTasks(result.data) });
+    }
 
     useEffect(() => {
         //Fetch when a journal is selected
@@ -69,10 +54,6 @@ const TaskPlanner = ({ user, type, journal }) => {
         }
     }, [])
 
-    const fetchTasks = () => {
-        axios.get(`http://localhost:8000/api/items?id=${user.id}&journal=${journal}&type=${type}`)
-            .then((result) => { storeFetchedTasks(result.data) });
-    }
     const storeFetchedTasks = (tasks) => {
         setFetchedTasks(tasks);
     }
@@ -85,8 +66,8 @@ const TaskPlanner = ({ user, type, journal }) => {
     }
 
     const handleSetStatus = (task) => {
-        let updatedTask = {}
-        console.log()
+        let updatedTask = {};
+
         if (task.status === 'Pending') {
             updatedTask = {
                 user: task.user, type: task.type,
@@ -215,8 +196,6 @@ const TaskPlanner = ({ user, type, journal }) => {
 
             axios.post('http://localhost:8000/api/items/', newTask)
                 .then((result) => { fetchTasks() })
-
-
         }
 
         return (

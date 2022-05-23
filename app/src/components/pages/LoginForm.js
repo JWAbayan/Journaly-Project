@@ -9,8 +9,13 @@ const LoginForm = ({ handleLogin, containerRef }) => {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [fetchedUser, setFetchedUser] = React.useState(null);
-
     const hasFetchedUser = Boolean(fetchedUser);
+
+    //If the user is authorized, redirect to dashboard
+    if (hasFetchedUser) {
+        console.log("Has fetched user!")
+        return <Navigate to='dashboard' />
+    }
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
@@ -21,7 +26,6 @@ const LoginForm = ({ handleLogin, containerRef }) => {
     }
 
     const validateUser = (user) => {
-        console.log(user[0]);
         //Authorize user when there is a fetched data
         if (user.length > 0) {
             //Extracts the user from the array 
@@ -29,20 +33,17 @@ const LoginForm = ({ handleLogin, containerRef }) => {
             handleLogin(true, user[0]);
 
         } else {
-            alert('This account is not yet registered. Please check :)')
+            alert('Given Journaly account does not exist. Try again or register a new one')
         }
     }
 
+    //Handles login submit and validate the user
     const handleSubmit = (event) => {
+
         axios.get(`http://localhost:8000/api/users?email=${email}&password=${password}`)
             .then((result) => { validateUser(result.data) })
 
         event.preventDefault();
-    }
-
-    //If the user is authorized, redirect to dashboard
-    if (hasFetchedUser) {
-        return <Navigate to='dashboard' />
     }
 
     return (
@@ -66,7 +67,7 @@ const LoginForm = ({ handleLogin, containerRef }) => {
                 </div>
             </div>
             <div className="footer">
-                <button type="button" className="btn" type="submit">Login</button>
+                <button className="btn" type="submit">Login</button>
             </div>
         </form >
     );
