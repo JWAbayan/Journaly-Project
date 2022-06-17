@@ -2,7 +2,8 @@ import React from 'react';
 import LoginForm from './pages/LoginForm';
 import RegisterForm from './pages/RegisterForm';
 import background from './assets/5272.jpg'
-import { Typography } from '@mui/material';
+import { Grid, Typography, Paper, Container } from '@mui/material';
+
 
 class Login extends React.Component {
     constructor(props) {
@@ -60,5 +61,24 @@ const RightSide = props => {
         </div>
     );
 };
+
+// const Login = ({ props }) => {
+//     return (
+//         <Container >
+//             <Grid container spacing={2}>
+//                 <Grid item xs={8}>
+//                     <Paper>
+//                         8
+//                     </Paper>
+//                 </Grid>
+//                 <Grid item xs={2}>
+//                     <Paper>
+//                         2
+//                     </Paper>
+//                 </Grid>
+//             </Grid>
+//         </Container>
+//     );
+// };
 
 export default Login;

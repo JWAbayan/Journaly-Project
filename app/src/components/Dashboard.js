@@ -315,6 +315,10 @@ export default function Dashboard({ authorized, currentUser, handleLogout }) {
 
   }
 
+  TODO:
+  //remove true 
+  //ProfileTab component must have the retrieved user
+
   //If user is authorized, render dashboard
   if (authorized) {
     return (
